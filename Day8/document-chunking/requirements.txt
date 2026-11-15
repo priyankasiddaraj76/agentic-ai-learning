@@ -1,0 +1,4 @@
+# Extracts text from PDFs.
+pymupdf
+# Provides recursive text splitting
+langchain-text-splitters
