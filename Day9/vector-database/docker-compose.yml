@@ -1,0 +1,25 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.7-pg17-trixie #Uses a PostgreSQL image with pgvector already installed
+    container_name: day9-postgre
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: vectordb #Creates the database
+      POSTGRES_USER: appuser #Creates the database user
+      POSTGRES_PASSWORD: local_dev_password #Sets the local development password
+
+    ports:
+      - "5432:5432" #Makes PostgreSQL accessible on port 5432
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U appuser -d vectordb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes: #Persists database data even if the container stops
+  postgres_data:

@@ -1,0 +1,10 @@
+docker ps ####check your running containers
+docker exec -it <container_name> psql -U <postgres_user> -d <database_name> ####conect to your container_name
+    postgres=# \dt #####Lists all tables
+    postgres=# \d document_chunks  ####Displays the table structure
+    postgres=# SELECT * FROM document_chunks LIMIT 5;  ####Displays the first 5 records
+    postgres=# \l  ####List databases
+    postgres=# \c dbname  ####Connect to database
+    postgres=# \dx  ####List extensions
+    postgres=# \du  ####List users
+    postgres=# \q  ####exit psql
