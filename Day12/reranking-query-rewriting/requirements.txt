@@ -1,0 +1,7 @@
+google-genai #Uses Gemini for query rewriting and answer generation
+psycopg[binary]
+pgvector
+pydantic
+python-dotenv
+sentence-transformers #Provides the CrossEncoder API
+torch #Runs the cross-encoder model
